@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-canvas: #f4f6fb;
+  --color-surface: #ffffff;
+  --color-elevated: #eef1f8;
+  --color-well: #e8ebf2;
+  --color-border: #d8dee9;
+  --color-text: #121826;
+  --color-text-muted: #5c6578;
+  --color-primary: #c81e2a;
+  --color-primary-hover: #a01822;
+  --color-accent: #e6bc00;
+  --color-accent-muted: #b8960a;
+  --color-success: #059669;
+  --color-danger: #dc2626;
+}
+
+.dark {
+  --color-canvas: #0b0d18;
+  --color-surface: #141825;
+  --color-elevated: #1c2030;
+  --color-well: #11141f;
+  --color-border: #2a3045;
+  --color-text: #eceef4;
+  --color-text-muted: #9aa3b8;
+  --color-primary: #e84a4a;
+  --color-primary-hover: #ff6b6b;
+  --color-accent: #f5d547;
+  --color-accent-muted: #c9a227;
+  --color-success: #34d399;
+  --color-danger: #f87171;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-canvas text-ink antialiased motion-reduce:transition-none;
+    padding-left: env(safe-area-inset-left, 0);
+    padding-right: env(safe-area-inset-right, 0);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+}

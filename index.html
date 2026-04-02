@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link id="poke-favicon" rel="icon" type="image/svg+xml" href="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function () {
+        function ball(topHex, buttonHex) {
+          return (
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">' +
+            '<circle cx="16" cy="16" r="14.5" fill="#f5f5f5" stroke="#1a1a1a" stroke-width="1.2"/>' +
+            '<path d="M16 1.5A14.5 14.5 0 0130.5 16H1.5A14.5 14.5 0 0116 1.5z" fill="' +
+            topHex +
+            '"/>' +
+            '<circle cx="16" cy="16" r="5" fill="#eaeaea" stroke="#1a1a1a" stroke-width="1.2"/>' +
+            '<circle cx="16" cy="16" r="2.2" fill="' +
+            buttonHex +
+            '"/></svg>'
+          );
+        }
+        var variants = [
+          ball('#DC0A2D', '#c62828'),
+          ball('#2962B8', '#1565c0'),
+          ball('#F9D030', '#1a1a1a'),
+          ball('#6BB93C', '#2e7d32'),
+          ball('#B97FC9', '#7b1fa2'),
+          ball('#E85B5B', '#ffffff'),
+          ball('#333333', '#F9D030'),
+          ball('#E8E8E8', '#DC0A2D'),
+        ];
+        var svg = variants[Math.floor(Math.random() * variants.length)];
+        var href = 'data:image/svg+xml,' + encodeURIComponent(svg);
+        var el = document.getElementById('poke-favicon');
+        if (el) el.setAttribute('href', href);
+      })();
+    </script>
+    <meta name="theme-color" content="#0b0d18" />
+    <meta name="description" content="Pokémon quiz: silhouette, types, and cries with PokéAPI." />
+    <title>PokeQuiz</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
