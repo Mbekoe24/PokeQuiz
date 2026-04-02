@@ -193,8 +193,8 @@ export default function Game() {
       setTypedAnswer('');
       setTypedFeedback(null);
       answeredRef.current = false;
-      const ri = (minN: number, maxN: number) =>
-        createSeededRandom(`${runSeedRef.current}:q${questionIndex}`)(minN, maxN);
+      const rng = createSeededRandom(`${runSeedRef.current}:q${questionIndex}`);
+      const ri = (minN: number, maxN: number) => rng(minN, maxN);
       try {
         const q = await buildQuizQuestion({
           min,
