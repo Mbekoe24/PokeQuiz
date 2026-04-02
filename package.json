@@ -7,6 +7,7 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
+    "deploy:surge": "npm run build && cp dist/index.html dist/200.html && npx surge dist https://poke-quiz.surge.sh",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",

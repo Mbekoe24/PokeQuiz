@@ -2,6 +2,8 @@
 
 A **Pokémon knowledge quiz** built as a modern single-page app. You identify species from **silhouette / full art**, **types**, or **cries**, tune **generations** and **difficulty**, chase **high scores**, and optionally share a **replayable** run via URL.
 
+**Live site:** [https://poke-quiz.surge.sh](https://poke-quiz.surge.sh)
+
 <p align="center">
   <img src="docs/readme-screenshot.png" alt="PokeQuiz home screen showing hero, settings, and quiz options" width="900" />
 </p>
@@ -13,9 +15,18 @@ A **Pokémon knowledge quiz** built as a modern single-page app. You identify sp
 | | URL |
 |---|-----|
 | **This project (source)** | [github.com/Mbekoe24/PokeQuiz](https://github.com/Mbekoe24/PokeQuiz) |
+| **Live (Surge)** | **[poke-quiz.surge.sh](https://poke-quiz.surge.sh)** — *hosted on Surge; redeploy with `npm run deploy:surge` (see below).* |
 | **Original prototype** | [poke-app repository](https://github.com/Mbekoe24/poke-app) · [live site](http://pokeapptest.surge.sh/) |
 
-> **Live build for this repo:** Deploy the contents of `dist/` after `npm run build` (e.g. [Surge](https://surge.sh/), Netlify, GitHub Pages). Set your public URL here once published.
+**Surge deploy** (run locally—Surge will prompt for email/password the first time):
+
+```bash
+npm run deploy:surge
+```
+
+This runs `vite build`, copies **`dist/index.html` → `dist/200.html`** (so direct visits to `/game` and `/results` work on Surge), then uploads `dist/` to **`https://poke-quiz.surge.sh`**. If that subdomain is already taken on Surge, pick another: `npx surge dist https://your-name.surge.sh`.
+
+Other static hosts (Netlify, GitHub Pages, etc.) can still use `npm run build` and upload `dist/`; only Surge needs the extra `200.html` for SPA fallback.
 
 **Data:** [PokéAPI](https://pokeapi.co/) (official artwork, species text, cries). No backend required—everything runs in the browser.
 
@@ -32,6 +43,19 @@ A **Pokémon knowledge quiz** built as a modern single-page app. You identify sp
 | **Tooling** | Manual workflow | **ESLint**, **Vitest**, **Testing Library**, **vite-plugin-pwa** |
 
 The older app on [pokeapptest.surge.sh](http://pokeapptest.surge.sh/) proved the game loop; **PokeQuiz** keeps that spirit with a clearer architecture, accessibility-minded UI, and room to grow without rewiring globals in one file.
+
+---
+
+## Disclosure: use of artificial intelligence
+
+**PokeQuiz** is a substantive **redesign and enhancement** of the author’s earlier **Poke App** (2020): a client-side Pokémon quiz originally built with **vanilla HTML, CSS, and JavaScript** ([source](https://github.com/Mbekoe24/poke-app); [live prototype](http://pokeapptest.surge.sh/)). **Generative artificial intelligence** was used to **extend the prior concept**, **preserve and improve core quiz logic**, and **implement** the present **React**, **TypeScript**, and **Vite** stack, along with additional modes, tooling, and documentation.
+
+Assistive tools included:
+
+- **[Cursor](https://cursor.com/)** — editor-integrated assistance and **agent-based** workflows for multi-file changes, scaffolding, configuration, and refactors.
+- **[Claude](https://www.anthropic.com/)** (Anthropic), principally via **Cursor** and comparable integrated workflows — recommendations on structure, **TypeScript** / **React** patterns, **Vitest** and **Testing Library** setup, **README** and technical copy, and iterative refinement of gameplay and user experience.
+
+The **author retains full responsibility** for requirements, review of all contributions (including AI-generated material), integration, and release. These instruments functioned as **development aids** only; they **do not supplant** human judgment or accountability for this repository or its relationship to the **2020 Poke App**.
 
 ---
 
